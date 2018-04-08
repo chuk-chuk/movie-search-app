@@ -13,23 +13,8 @@ export default class MovieGrid extends Component {
 
   componentDidMount(){
     fetch("http://localhost:5000/movies/?searchTerm=star+trek")
-    .then(results => {
-      return results.json();
-    }).then(data => {
-      let movies = data.results.map((mov) => {
-        return(
-          <div key={mov.results}>
-             <img src={mov.artworkUrl100} alt={mov.trackName}/>
-             <h2>{mov.trackName}</h2>
-             <span>{mov.primaryGenreName}</span>
-             <span>{mov.releaseDate}</span>
-             <p>{mov.longDescription}</p>
-          </div>
-        )
-      })
-      this.setState({movies});
-      console.log("STATE", this.state.movies);
-    })
+    .then(results => results.json())
+    .then(data => this.setState({ movies: data.results }));
   }
 
   render() {
@@ -43,7 +28,19 @@ export default class MovieGrid extends Component {
               <button>Release year</button>
             </div>
         </div>
-        <Movie />
+
+        <div className="MovieGrid__movies">
+        {this.state.movies.map(mov => (
+          <Movie
+            image={mov.artworkUrl100}
+            title={mov.trackName}
+            genre={mov.primaryGenreName}
+            release={mov.releaseDate}
+            desc={mov.longDescription}
+          />
+        ))}
+        </div>
+
       </div>
     )
   }

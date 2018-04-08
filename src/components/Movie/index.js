@@ -1,20 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 import "./styles.css"
 
-export default class Movie extends Component {
-  render() {
+const Movie = ({ image, title, genre, release, desc }) => {
+
     return (
       <figure className="Movie">
        <div className="Movie__ava">
-        <img className="Movie__image" src={require('../../assets/movie-img.jpg')} alt="name" />
+        <img className="Movie__image" src={image} alt={title} />
        </div>
        <figcaption>
-         <h2>Star Track</h2>
-         <span>Sci-Fi & Fantasy</span>
-         <span>2009-05-08T07:00:00Z</span>
-         <p className="Movie__desc">The greatest adventure of all time begins with Star Trek, the incredible story The greatest adventure of all time begins with Star Trek, the incredible story</p>
+         <h2>{title}</h2>
+         <span>{genre}</span>
+         <span>{release}</span>
+         <p className="Movie__desc">{desc}</p>
        </figcaption>
       </figure>
     )
-  }
+
 }
+export default Movie;
