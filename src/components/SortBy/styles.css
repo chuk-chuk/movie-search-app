@@ -1,0 +1,9 @@
+.SortBy {
+  margin: 40px;
+  padding: 30px;
+  background-color: yellow;
+}
+
+.SortBy__title {
+  font-weight: bold;
+}
