@@ -7,7 +7,14 @@ export default class MovieGrid extends Component {
   render() {
     return (
       <div className="MovieGrid">
-        <p className="MovieGrid__title">Movie Grid is here</p>
+        <div>
+            <span className="MovieGrid__result">Result</span>
+            <div className="MovieGrid__sort">
+              <span className="">Sort by</span>
+              <button>Title</button>
+              <button>Release year</button>
+            </div>
+        </div>
         <Movie />
       </div>
     )

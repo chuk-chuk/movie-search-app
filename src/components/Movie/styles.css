@@ -1,8 +1,14 @@
 .Movie {
-  background-color: green;
+  background-color: white;
   padding: 20px;
   margin: 20px;
+  width: 30%;
 }
-.Movie__title {
-  font-size: 22px;
+
+.Movie__desc {
+  display: block;
+  width: 500px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

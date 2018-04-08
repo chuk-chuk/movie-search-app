@@ -1,8 +1,15 @@
 .MovieGrid {
-  background-color: blue;
+  background-color: #f7f7f7;
   padding: 20px;
 }
-.MovieGrid__title {
+.MovieGrid__result {
+  font-size: 36px;
+  color: #4d4d4d;
+  padding: 20px;
+}
+
+.MovieGrid__sort {
+  color: #4d4d4d;
   font-size: 26px;
-  color: white;
+  float: right;
 }
