@@ -12,7 +12,7 @@ export default class Movie extends Component {
          <h2>Star Track</h2>
          <span>Sci-Fi & Fantasy</span>
          <span>2009-05-08T07:00:00Z</span>
-         <p class="Movie__desc">The greatest adventure of all time begins with Star Trek, the incredible story The greatest adventure of all time begins with Star Trek, the incredible story</p>
+         <p className="Movie__desc">The greatest adventure of all time begins with Star Trek, the incredible story The greatest adventure of all time begins with Star Trek, the incredible story</p>
        </figcaption>
       </figure>
     )
