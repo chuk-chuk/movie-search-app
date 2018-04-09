@@ -13,3 +13,28 @@
   font-size: 26px;
   float: right;
 }
+
+.button {
+  border: none;
+  text-transform: uppercase;
+  outline: none;
+  box-shadow: 4px 10px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 15px 32px;
+  margin-left: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+}
+
+.button__title {
+  background-color: #00d9c6;
+  color: white;
+
+}
+.button__date {
+  background-color: white;
+  color: black;
+
+}

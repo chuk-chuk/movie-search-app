@@ -4,18 +4,6 @@ import "./styles.css";
 import Movie from "../Movie";
 
 export default class MovieGrid extends Component {
-  constructor(){
-    super();
-    this.state = {
-      movies: [],
-    };
-  }
-
-  componentDidMount(){
-    fetch("http://localhost:5000/movies/?searchTerm=star+trek")
-    .then(results => results.json())
-    .then(data => this.setState({ movies: data.results }));
-  }
 
   render() {
     return (
@@ -23,14 +11,14 @@ export default class MovieGrid extends Component {
         <div>
             <span className="MovieGrid__result">Result</span>
             <div className="MovieGrid__sort">
-              <span className="">Sort by</span>
-              <button>Title</button>
-              <button>Release year</button>
+              <span>SORT BY</span>
+              <button className="button button__title">Title</button>
+              <button className="button button__date">Release year</button>
             </div>
         </div>
 
         <div className="MovieGrid__movies">
-        {this.state.movies.map(mov => (
+        {this.props.data.map(mov => (
           <Movie
             image={mov.artworkUrl100}
             title={mov.trackName}

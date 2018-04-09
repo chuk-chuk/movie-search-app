@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import "./styles.css";
 
-export default class Header extends Component {
-  render() {
+const Header = ({onButtonSubmit, onSearchChange}) => {
     return (
       <div className="Header">
         <div className="Header__logo__main">
@@ -14,11 +13,12 @@ export default class Header extends Component {
         <header>
           <h1 className="Header__title">iTunes movie search</h1>
         </header>
-        <div className="Header__search">
-          <input className="Header__input" ref="search" type="search" placeholder="Search for anything right here..." />
-          <button className="Header__button" onClick={this.handleClick}>Search</button>
-       </div>
+        <form className="Header__search" onSubmit={onButtonSubmit}>
+          <input className="Header__input" type="text" onChange={onSearchChange} placeholder="Search for anything right here..." />
+          <button type="submit" className="Header__button">Search</button>
+       </form>
       </div>
     )
   }
-}
+
+export default Header;
