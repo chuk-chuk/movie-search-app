@@ -3,13 +3,14 @@ import './styles.css';
 
 import Header from "../Header";
 import MovieGrid from "../MovieGrid";
+import NoResultsWindow from "../NoResultsWindow";
 
 export default class App extends Component {
   constructor(){
     super();
     this.state = {
       movies: [],
-      query: "star+track"
+      query: ""
     };
   }
 
@@ -20,22 +21,37 @@ export default class App extends Component {
   onSubmit(e) {
      e.preventDefault();
      this.getData(this.state.query);
-     this.setState({ query: ''})
+     e.target.reset();
   }
 
   getData(query) {
     const url = `http://localhost:5000/movies/?searchTerm=${query}`
     console.log("URL", url);
     fetch(url)
-    .then(response => response.json())
-    .then(data => this.setState({ movies: data.results }));
+    .then(response => {
+      console.log("response", response);
+      if(response.ok) {
+        response.json().then(data => {
+          if(data.resultCount > 0){
+            this.setState({ movies: data.results })
+          } else {
+            console.log("NO MOVIES FOUND");
+            this.setState({ movies: []})
+          }
+        })
+      } else {
+        console.log("Test");
+      }
+    })
   }
 
   componentDidMount(){
-    this.getData(this.state.query);
+    this.getData("fast+furious");
   }
 
   render() {
+    const isResult = (this.state.movies).length > 0;
+
     return (
       <div className="App">
         <Header
@@ -43,7 +59,11 @@ export default class App extends Component {
           onSearchChange={this.handleChange.bind(this)}
           onButtonSubmit={this.onSubmit.bind(this)}
         />
-        <MovieGrid data={this.state.movies}/>
+        {isResult ? (
+               <MovieGrid data={this.state.movies}/>
+             ) : (
+               <NoResultsWindow />
+             )}
       </div>
     );
   }

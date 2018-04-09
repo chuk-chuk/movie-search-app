@@ -7,6 +7,7 @@
     "express": "^4.16.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-icons": "^2.2.7",
     "react-scripts": "1.1.0",
     "request-promise": "^4.2.2",
     "style-loader": "^0.20.3"
@@ -18,10 +19,11 @@
     "startserver": "node server"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.2",
-    "sass-loader": "^6.0.6",
-    "node-sass": "^4.7.2",
     "enzyme": "2.9.1",
-    "jest": "20.0.4"
+    "jest": "20.0.4",
+    "moment": "^2.22.0",
+    "node-sass": "^4.7.2",
+    "npm-run-all": "^4.1.2",
+    "sass-loader": "^6.0.6"
   }
 }
