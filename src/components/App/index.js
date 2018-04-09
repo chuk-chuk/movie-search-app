@@ -19,21 +19,20 @@ export default class App extends Component {
 
   onSubmit(e) {
      e.preventDefault();
-     const query = this.state.query;
-     console.log("OnSubmit", query);
+     this.getData(this.state.query);
      this.setState({ query: ''})
   }
 
-  getData() {
-    const url = `http://localhost:5000/movies/?searchTerm=${this.state.query}`
+  getData(query) {
+    const url = `http://localhost:5000/movies/?searchTerm=${query}`
     console.log("URL", url);
     fetch(url)
-    .then(results => results.json())
+    .then(response => response.json())
     .then(data => this.setState({ movies: data.results }));
   }
 
   componentDidMount(){
-    this.getData();
+    this.getData(this.state.query);
   }
 
   render() {

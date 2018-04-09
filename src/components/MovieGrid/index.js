@@ -20,6 +20,7 @@ export default class MovieGrid extends Component {
         <div className="MovieGrid__movies">
         {this.props.data.map(mov => (
           <Movie
+            key={mov.trackId}
             image={mov.artworkUrl100}
             title={mov.trackName}
             genre={mov.primaryGenreName}
