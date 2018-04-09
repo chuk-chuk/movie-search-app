@@ -3,6 +3,16 @@
   text-align: center;
   padding: 20px;
 }
+
+.Header__logo__main {
+  float: left;
+  padding-bottom: 50px;
+}
+
+.Header__logo {
+  padding-top: 100px;
+}
+
 .Header__title {
   color: white;
   font-size: 25px;
