@@ -4,7 +4,6 @@ import "./styles.css"
 
 const Movie = ({ image, title, genre, release, desc }) => {
   Moment.locale('en');
-  console.log(release);
     return (
       <figure className="Movie">
        <div className="Movie__ava">

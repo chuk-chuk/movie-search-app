@@ -1,24 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 import "./styles.css";
 
 import Movie from "../Movie";
 
-export default class MovieGrid extends Component {
+const MovieGrid = ({ sortByTitle, sortByYear, data }) => {
 
-  render() {
     return (
       <div className="MovieGrid">
         <div>
             <span className="MovieGrid__result">Result</span>
             <div className="MovieGrid__sort">
               <span>SORT BY</span>
-              <button className="button button__title">Title</button>
-              <button className="button button__date">Release year</button>
+              <button className="button button__title" onClick={sortByTitle}>Title</button>
+              <button className="button button__date" onClick={sortByYear}>Release year</button>
             </div>
         </div>
 
         <div className="MovieGrid__movies">
-        {this.props.data.map(mov => (
+        {data.map(mov => (
           <Movie
             key={mov.trackId}
             image={mov.artworkUrl100}
@@ -32,5 +31,6 @@ export default class MovieGrid extends Component {
 
       </div>
     )
-  }
+
 }
+export default MovieGrid;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import './styles.css';
 
 import Header from "../Header";
@@ -22,6 +23,20 @@ export default class App extends Component {
      e.preventDefault();
      this.getData(this.state.query);
      e.target.reset();
+  }
+
+  sortByTitle(){
+    console.log("sorting by title");
+    this.setState({
+      movies: _.sortBy(this.state.movies, 'trackName')
+    });
+  }
+
+  sortByYear(){
+    console.log("sorting by year");
+    this.setState({
+      movies: _.sortBy(this.state.movies, 'releaseDate')
+    });
   }
 
   getData(query) {
@@ -60,7 +75,10 @@ export default class App extends Component {
           onButtonSubmit={this.onSubmit.bind(this)}
         />
         {isResult ? (
-               <MovieGrid data={this.state.movies}/>
+               <MovieGrid
+                 data={this.state.movies}
+                 sortByTitle={this.sortByTitle.bind(this)}
+                 sortByYear={this.sortByYear.bind(this)} />
              ) : (
                <NoResultsWindow />
              )}

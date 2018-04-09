@@ -5,6 +5,7 @@
   "dependencies": {
     "css-loader": "^0.28.11",
     "express": "^4.16.2",
+    "lodash": "^4.17.5",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-icons": "^2.2.7",
