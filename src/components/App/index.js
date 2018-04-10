@@ -4,13 +4,14 @@ import './styles.css';
 
 import Header from "../Header";
 import MovieGrid from "../MovieGrid";
-import NoResultsWindow from "../NoResultsWindow";
+import Loader from "../Loader";
+import {fetchMovies} from "../../api/fetchMovies";
 
 export default class App extends Component {
   constructor(){
     super();
     this.state = {
-      movies: [],
+      movies: undefined,
       query: ""
     };
   }
@@ -25,37 +26,21 @@ export default class App extends Component {
      e.target.reset();
   }
 
-  sortByTitle(){
-    console.log("sorting by title");
+  sortBy(fieldName){
+    console.log("Sorting...");
     this.setState({
-      movies: _.sortBy(this.state.movies, 'trackName')
-    });
-  }
-
-  sortByYear(){
-    console.log("sorting by year");
-    this.setState({
-      movies: _.sortBy(this.state.movies, 'releaseDate')
+      movies: _.sortBy(this.state.movies, fieldName)
     });
   }
 
   getData(query) {
-    const url = `http://localhost:5000/movies/?searchTerm=${query}`
-    console.log("URL", url);
-    fetch(url)
-    .then(response => {
-      console.log("response", response);
-      if(response.ok) {
-        response.json().then(data => {
-          if(data.resultCount > 0){
-            this.setState({ movies: data.results })
-          } else {
-            console.log("NO MOVIES FOUND");
-            this.setState({ movies: []})
-          }
-        })
+    fetchMovies(query)
+    .then(data => {
+      if(data.resultCount > 0){
+        this.setState({ movies: data.results })
       } else {
-        console.log("Test");
+        console.log("No movies found");
+        this.setState({ movies: []})
       }
     })
   }
@@ -65,7 +50,7 @@ export default class App extends Component {
   }
 
   render() {
-    const isResult = (this.state.movies).length > 0;
+    const isResult = this.state.movies === undefined;
 
     return (
       <div className="App">
@@ -74,14 +59,12 @@ export default class App extends Component {
           onSearchChange={this.handleChange.bind(this)}
           onButtonSubmit={this.onSubmit.bind(this)}
         />
-        {isResult ? (
-               <MovieGrid
-                 data={this.state.movies}
-                 sortByTitle={this.sortByTitle.bind(this)}
-                 sortByYear={this.sortByYear.bind(this)} />
-             ) : (
-               <NoResultsWindow />
-             )}
+        {!isResult ? (
+           <MovieGrid
+            data={this.state.movies}
+            sortByTitle={() => this.sortBy('trackName')}
+            sortByYear={() => this.sortBy('releaseDate')} />
+           ) : ( <Loader /> )}
       </div>
     );
   }

@@ -5,14 +5,14 @@
 }
 
 .MovieGrid__result {
-  font-size: 36px;
+  font-size: 22px;
   color: #4d4d4d;
   padding: 20px;
 }
 
 .MovieGrid__sort {
   color: #4d4d4d;
-  font-size: 26px;
+  font-size: 22px;
   float: right;
 }
 
