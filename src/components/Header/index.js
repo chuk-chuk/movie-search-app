@@ -15,7 +15,7 @@ const Header = ({onButtonSubmit, onSearchChange}) => {
           <h1 className="Header__title"><FaSearch /> iTunes movie search</h1>
         </header>
         <form className="Header__search" onSubmit={onButtonSubmit}>
-          <input className="Header__input" type="text" onChange={onSearchChange} placeholder="  &#xf075; Search for anything right here..." />
+          <input className="Header__input" type="text" onChange={onSearchChange} placeholder="Search for anything right here..." />
           <button type="submit" className="Header__button">Search</button>
        </form>
       </div>

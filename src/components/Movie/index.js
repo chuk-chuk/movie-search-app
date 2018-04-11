@@ -5,17 +5,20 @@ import "./styles.css"
 const Movie = ({ image, title, genre, release, desc }) => {
   Moment.locale('en');
     return (
-      <figure className="Movie">
-       <div className="Movie__ava">
-        <img className="Movie__image" src={image} alt={title} />
-       </div>
-       <figcaption>
-         <h2>{title}</h2>
-         <span>{genre}</span>
-         <span>{Moment(release).format('DD MMMM YYYY')}</span>
-         <p className="Movie__desc">{desc}</p>
-       </figcaption>
-      </figure>
+
+      <li className="Movie">
+        <div className="Movie__wrapper">
+          <div className="Movie__ava">
+            <img className="Movie__image" src={image} alt={title} />
+          </div>
+          <div className="Movie__content">
+            <p className="Movie__title">{title}</p>
+            <span>{genre}</span>
+            <span>{Moment(release).format('DD MMMM YYYY')}</span>
+            <p className="Movie__desc">{desc}</p>
+          </div>
+        </div>
+      </li>
     )
 
 }

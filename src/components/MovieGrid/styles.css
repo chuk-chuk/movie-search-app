@@ -1,9 +1,19 @@
 .MovieGrid {
   background-color: #f7f7f7;
   padding: 20px;
-  position: absolute;
 }
 
+.MovieGrid__movies {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+.MovieGrid__content {
+  max-width: 1300px;
+  margin: 0 auto;
+}
 .MovieGrid__result {
   font-size: 22px;
   color: #4d4d4d;
@@ -13,7 +23,6 @@
 .MovieGrid__sort {
   color: #4d4d4d;
   font-size: 22px;
-  float: right;
 }
 
 .button {

@@ -2,14 +2,34 @@
   background-color: white;
   padding: 20px;
   margin: 20px;
-  width: 33%;
-  float: left;
-  display: inline-flex;
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.Movie__wrapper {
+  width: 100%;
+  display: block;
+}
+
+.Movie__ava {
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.Movie__content {
+  width: 70%;
+  display: inline-block;
+}
+
+.Movie__title {
+  margin: 0;
+  font-size: 20px;
+  padding-bottom: 20px;
 }
 
 .Movie__desc {
-  display: block;
-  width: 300px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
