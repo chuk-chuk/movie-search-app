@@ -1,33 +1,70 @@
+var webpack = require('webpack');
+
 module.exports = {
+  mode: 'development',
   entry: "./src/index.js",
   output: {
-        filename: 'bundle.js'
-    },
-    watch: true,
+      filename: 'bundle.js'
+  },
+  watch: true,
 
-    module: {
-        preLoaders: [
-          {
-            test: /|.js$/,
-            exclude: /node_modules/,
-            loaders: "jshint-loader"
+  node: {
+    console: false,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  },
+
+  plugins: [
+      new webpack.DefinePlugin({
+          'process.env': {
+              'NODE_ENV': JSON.stringify('development')
           }
-        ],
+      }),
+  ],
 
-        loaders: [
+  module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: [
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
-            },
-            {
-                test: /\.scss$/,
-                loaders: ['style', 'css?minimize&-autoprefixer', 'postcss-loader']
+              loader: 'babel-loader',
+              options: {
+                presets: [
+                  ["es2015"],
+                  ["react"]
+                ]
+              }
             }
-        ]
-    },
+          ]
+        },{
+          test: /\.css$/,
+          use: [
+            'style-loader',
+            'css-loader'
+          ]
+        }, {
+          test: /\.(png|svg|jpg|gif)$/,
+          use: [
+          'file-loader'
+          ]
+        },{
+          test: /\.scss$/,
+          exclude: /node_modules/,
+          use: [{
+              loader: "style-loader"
+          }, {
+              loader: "css-loader"
+          }, {
+              loader: "sass-loader"
+          }]
+      }
+      ]
+  },
 
-    resolve: {
-      extentions: ["", ".js", ".es6"]
-    }
+  resolve: {
+    extensions: ["*", ".js", ".jsx"]
+  }
 }
