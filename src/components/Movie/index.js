@@ -13,8 +13,10 @@ const Movie = ({ image, title, genre, release, desc }) => {
           </div>
           <div className="Movie__content">
             <p className="Movie__title">{title}</p>
-            <span>{genre}</span>
-            <span>{Moment(release).format('DD MMMM YYYY')}</span>
+            <div className="Movie__headline">
+              <span>{genre}</span>
+              <span>{Moment(release).format('DD MMMM YYYY')}</span>
+            </div>
             <p className="Movie__desc">{desc}</p>
           </div>
         </div>

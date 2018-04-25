@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .SortOptions {
   display: flex;
@@ -18,18 +19,18 @@
 }
 
 .MovieGrid__content {
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 .MovieGrid__result {
-  font-size: 22px;
+  font-size: 18px;
   color: #4d4d4d;
   padding-top: 15px;
 }
 
 .MovieGrid__sort {
   color: #4d4d4d;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .button {
