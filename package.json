@@ -9,7 +9,8 @@
     "react-dom": "^16.2.0",
     "react-icons": "^2.2.7",
     "react-scripts": "1.1.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "webpack": "^3.11.0"
   },
   "scripts": {
     "prestart": "npm prune --dev && npm install",
@@ -37,7 +38,6 @@
     "sass-loader": "^6.0.6",
     "strip-loader": "^0.1.2",
     "style-loader": "^0.20.3",
-    "webpack": "4.5.0",
     "webpack-cli": "^2.0.14",
     "webpack-dev-server": "^2.1.3"
   },

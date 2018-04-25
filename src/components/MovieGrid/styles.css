@@ -7,8 +7,15 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-
+.SortOptions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
 
 .MovieGrid__content {
   max-width: 1300px;
@@ -17,7 +24,7 @@
 .MovieGrid__result {
   font-size: 22px;
   color: #4d4d4d;
-  padding: 20px;
+  padding-top: 15px;
 }
 
 .MovieGrid__sort {

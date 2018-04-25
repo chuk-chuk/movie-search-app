@@ -1,10 +1,9 @@
 .Movie {
   background-color: white;
-  padding: 20px;
+  padding: 23px;
   margin: 20px;
-  width: 25%;
-  display: inline-block;
-  vertical-align: top;
+  width: 300px;
+  flex: 1;
 }
 
 .Movie__wrapper {
